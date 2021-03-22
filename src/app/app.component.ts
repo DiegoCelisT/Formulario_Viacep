@@ -9,6 +9,7 @@ import { EnderecoService } from './endereco.service';
 export class AppComponent {
   
   endereco: any = {};
+  tem_endereco: boolean = false;  //new
 
   constructor (private Service_End: EnderecoService){}
 
@@ -18,12 +19,17 @@ export class AppComponent {
       alert ('O formulario deve ser preenchido corretamente! Dados incorretos!');
     }
     else{
-      console.log (formulario.form.value);
+      // console.log (formulario.form.value);
 
       this.Service_End.getEndereco(formulario.form.value.zipcode).subscribe(endereco => this.endereco = endereco);
 
-      console.log (this.endereco);
-      alert ('Dados enviados corretamente');
+      this.tem_endereco = true; //new
     }
+  }
+
+  //segundo botão (new):
+  limpar (){
+    this.endereco = [];
+    this.tem_endereco = false;
   }
 }

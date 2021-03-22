@@ -75,7 +75,7 @@ body {
   transition: .5s;
   margin-top: 40px;
   letter-spacing: 4px;
-  left:29%
+  /* left:29% */
 }
 
 .login-box a:hover {
